@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+ 
 
 const StudentsSchema = new mongoose.Schema(
     {
@@ -15,6 +16,10 @@ const StudentsSchema = new mongoose.Schema(
             required: true,
         },
         phone: {
+            type: String,
+            required: true,
+        },
+        gender: {
             type: String,
             required: true,
         },
