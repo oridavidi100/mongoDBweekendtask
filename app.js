@@ -1,13 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const jsonParser = bodyParser.json();
+// const bodyParser = require("body-parser");
+// const jsonParser = bodyParser.json();
 const app = express();
+const cors = require('cors');
 require("dotenv").config();
 const userRouter = require("./routers/user");
 const { morganBodyLogger } = require("./morgan");
-const errorHandlingMiddleware = require("./middlewares/errorHandlingMiddleware");
-const unknownEndpoint = require("./middlewares/unknownEndpoint");
+// const errorHandlingMiddleware = require("./middlewares/errorHandlingMiddleware");
+// const unknownEndpoint = require("./middlewares/unknownEndpoint");
+
+app.use(cors());
+app.use(express.json());
 
 const port = process.env.PORT || 3000;
 
@@ -25,10 +29,10 @@ mongoose
 
 // app.use(morganBodyLogger);
 
-// app.get("/", (req, res) => {
-//     res.send("working");
-// });
-// app.use("/user", jsonParser, userRouter);
+app.get("/", (req, res) => {
+    res.send("working");
+});
+app.use("/user", userRouter);
 
 // unknownEndpoint handling middleware
 // app.use(unknownEndpoint);
