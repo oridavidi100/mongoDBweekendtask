@@ -23,18 +23,18 @@ mongoose
         console.log("error connecting to MongoDB:", error.message);
     });
 
-app.use(morganBodyLogger);
+// app.use(morganBodyLogger);
 
-app.get("/", (req, res) => {
-    res.send("working");
-});
-app.use("/user", jsonParser, userRouter);
+// app.get("/", (req, res) => {
+//     res.send("working");
+// });
+// app.use("/user", jsonParser, userRouter);
 
 // unknownEndpoint handling middleware
-app.use(unknownEndpoint);
+// app.use(unknownEndpoint);
 
 // error handling middleware
-app.use(errorHandlingMiddleware);
+// app.use(errorHandlingMiddleware);
 
 app.listen(port, () => {
     console.log(`litsening in port ${port}`);
