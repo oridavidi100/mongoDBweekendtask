@@ -32,7 +32,7 @@ mongoose
 app.get("/", (req, res) => {
     res.send("working");
 });
-app.use("/user", userRouter);
+app.use("/student", userRouter);
 
 // unknownEndpoint handling middleware
 // app.use(unknownEndpoint);

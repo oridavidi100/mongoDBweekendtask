@@ -13,6 +13,8 @@ exports.listAllUsers = async (req, res, next) => {
         next(error);
     }
 };
+
+
 exports.addNewStudents = async (req, res, next) => {
     try {
         let { name, surname, birth, phone ,courses} = req.body;
@@ -29,19 +31,30 @@ exports.addNewStudents = async (req, res, next) => {
     }
 };
 
-exports.listAllUsers = async (req, res, next) => {
+exports.findByName= async (req, res, next) => {
     try {
         // console.log("userlist");
-        const userList = await Students.find({});
-        console.log(userList, "userlist");
-        res.status(200).json(userList);
-
+        const studentlist = await Students.find({name : req.params.name})
+        res.send(studentlist)
         // this is what i assume you meant
-        if (userList.length === 0) next(new Error("no users found in db"));
+        if (studentlist.length === 0) next(new Error("no users found in db"));
     } catch (error) {
         next(error);
     }
 };
+
+exports.findBycourse= async (req, res, next) => {
+    try {
+        // console.log("userlist");
+        const studentlist = await Students.find({courses:req.params.course})
+         res.status(200).send(studentlist)
+        // this is what i assume you meant
+        if (studentlist.length === 0) next(new Error("no users found in db"));
+    } catch (error) {
+        next(error);
+    }
+};
+
 
 
 //put all your user functions here :
