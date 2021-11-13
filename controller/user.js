@@ -1,10 +1,8 @@
-const User = require("../models/user.js");
+const User = require("../models/users");
 
 exports.listAllUsers = async (req, res, next) => {
     try {
-        console.log("userlist");
         const userList = await User.find({});
-        console.log(userList, "userlist");
         res.status(200).json(userList);
 
         // this is what i assume you meant
@@ -13,18 +11,18 @@ exports.listAllUsers = async (req, res, next) => {
         next(error);
     }
 };
-exports.addNewUser = async (req, res, next) => {
-    try {
-        let { username, email, bio, birthDate } = req.body;
-        const newUser = await User.create({
-            username: username,
-            email: email,
-            bio: bio,
-            birthDate: birthDate,
-        });
-        res.status(200).json(newUser);
-    } catch (error) {
-        next(error);
-    }
-};
+// exports.addNewUser = async (req, res, next) => {
+//     try {
+//         let { username, email, bio, birthDate } = req.body;
+//         const newUser = await User.create({
+//             username: username,
+//             email: email,
+//             bio: bio,
+//             birthDate: birthDate,
+//         });
+//         res.status(200).json(newUser);
+//     } catch (error) {
+//         next(error);
+//     }
+// };
 //put all your user functions here :
