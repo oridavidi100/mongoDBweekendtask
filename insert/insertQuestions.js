@@ -1,14 +1,14 @@
 const question = require ('../models/question')
 const mongoose = require("mongoose");
 
-// mongoose
-//     .connect("mongodb+srv://PhonebookoriDb:WsG9IKGGfG2WbtLn@firstmongo.w0kdo.mongodb.net/mongo_practice?retryWrites=true&w=majority")
-//     .then((result) => {
-//         console.log("connected to MongoDB");
-//     })
-//     .catch((error) => {
-//         console.log("error connecting to MongoDB:", error.message);
-//     });
+mongoose
+    .connect("mongodb+srv://PhonebookoriDb:WsG9IKGGfG2WbtLn@firstmongo.w0kdo.mongodb.net/mongo_practice?retryWrites=true&w=majority")
+    .then((result) => {
+        console.log("connected to MongoDB");
+    })
+    .catch((error) => {
+        console.log("error connecting to MongoDB:", error.message);
+    });
 
 
 const questionsArray=[
