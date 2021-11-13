@@ -1,14 +1,10 @@
-const User = require("../models/user.js");
+const question = require("../models/question.js");
 
-exports.listAllUsers = async (req, res, next) => {
+exports.listAllquestion = async (req, res, next) => {
     try {
-        console.log("userlist");
-        const userList = await User.find({});
-        console.log(userList, "userlist");
-        res.status(200).json(userList);
-
-        // this is what i assume you meant
-        if (userList.length === 0) next(new Error("no users found in db"));
+        const questionsList = await question.find({});
+        res.status(200).json(questionsList);
+        if (questionsList.length === 0) next(new Error("no users found in db"));
     } catch (error) {
         next(error);
     }
